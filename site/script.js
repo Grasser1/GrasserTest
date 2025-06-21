@@ -40,6 +40,17 @@ const translations = {
 function setLanguage(lang) {
     localStorage.setItem('lang', lang);
     applyTranslations();
+    updateActiveLang(lang);
+}
+
+function updateActiveLang(lang) {
+    document.querySelectorAll('.language-switch button').forEach(btn => {
+        if (btn.textContent.toLowerCase() === lang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
 }
 
 function applyTranslations() {
@@ -51,6 +62,7 @@ function applyTranslations() {
             el.textContent = translations[lang][key];
         }
     });
+    updateActiveLang(lang);
 }
 
 document.addEventListener('DOMContentLoaded', applyTranslations);

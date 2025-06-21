@@ -38,6 +38,9 @@ nav a {
     padding: 5px 10px;
     cursor: pointer;
 }
+.language-switch button.active {
+    background-color: #555;
+}
 
 header, main, footer {
     padding: 20px;
